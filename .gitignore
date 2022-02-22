@@ -1,0 +1,13 @@
+node_modules
+.DS_Store
+.vs/
+.vscode/
+
+.env
+.env.dev
+.env.prod
+
+.env/
+
+compiled
+compiled/

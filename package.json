@@ -1,0 +1,42 @@
+{
+  "name": "core",
+  "version": "1.0.0",
+  "description": "Truffle Project",
+  "license": "MIT",
+  "author": ".finance>",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "merge": "sol-merger \"./contracts/**/*.sol\" ./merged_contracts",
+    "test": "rm -rf ./compiled && cross-env NODE_ENV=development truffle compile && cross-env NODE_ENV=development truffle migrate --network bsctestnet",
+    "main": "rm -rf ./compiled && cross-env NODE_ENV=production truffle compile && cross-env NODE_ENV=production truffle migrate --network mainnet",
+    "verify:old": "truffle run verify MasterChef@0x824D8343cD4c0Dc4De09e8f894654d4c913AE1F6 SumoToken@0x0014B9E81122f74DF2E9290419857a924101fFf4 --network mainnet",
+    "verify:main": "truffle run verify MasterChef@0xa7bB40C4CB93038983090Ce1cA5c7e65fb4e740D SumoToken@0x063AC6Dd8723f4cF419e0fBafC99EF99d9668C5c Timelock@0x4624D1720f5Dac687486bcAb52F908c741e903d5 --network mainnet",
+    "verify:test": "truffle run verify MasterChef@0xa07e930fc5eD1A73fe80E6D938Ed001CDF72133C  SumoToken@0x18f0fcF8008fEd1C4bE5A01DC960A5E1df856A01 --network bsctestnet"
+  },
+  "dependencies": {
+    "@nomiclabs/buidler": "^1.4.8",
+    "@openzeppelin/contracts": "3.2.0",
+    "@openzeppelin/contracts-ethereum-package": "^3.0.0",
+    "@truffle/hdwallet-provider": "^1.2.1",
+    "@uniswap/v2-core": "1.0.1",
+    "@uniswap/v2-periphery": "1.1.0-beta.0",
+    "bignumber.js": "8.0.2",
+    "dotenv": "^8.2.0",
+    "global": "^4.4.0",
+    "hardhat": "^2.0.8",
+    "solc": "0.6.6",
+    "truffle": "5.1.51",
+    "truffle-plugin-verify": "^0.5.17",
+    "web3": "1.2.2"
+  },
+  "devDependencies": {
+    "chai": "4.2.0",
+    "chai-bignumber": "3.0.0",
+    "cross-env": "^7.0.3",
+    "eth-gas-reporter": "0.1.12",
+    "sol-merger": "^3.1.0"
+  }
+}
